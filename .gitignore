@@ -44,7 +44,7 @@ Thumbs.db
 **/.prettierignore
 **/.prettierrc
 
-**/public
+# **/public
 
 TODO.md
 
