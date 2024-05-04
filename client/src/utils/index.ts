@@ -1,3 +1,5 @@
+import { MAXIMUM_FILES_SIZE } from "./constants";
+
 export class LocalStorage {
   static get(key: string) {
     const value = localStorage.getItem(key);
@@ -24,3 +26,15 @@ export class LocalStorage {
   }
 }
 
+
+export const checkTotalFilesSize = (files: FileList) => {
+  let totalSize = 0;
+  if (files.length) {
+    for (let i = 0; i < files.length; i++) {
+      totalSize += files[i].size;
+    }
+  }
+  totalSize = totalSize / (1024 * 1024);
+  console.log("Total File Size: " + totalSize);
+  return MAXIMUM_FILES_SIZE >= totalSize;
+};

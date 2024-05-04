@@ -43,3 +43,64 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* HTML: <div class="loader"></div> */
+.progress-bar {
+  width: 120px;
+  height: 20px;
+  border-radius: 20px;
+  background:
+   repeating-linear-gradient(135deg,#f03355 0 10px,#ffa516 0 20px) 0/0%   no-repeat,
+   repeating-linear-gradient(135deg,#ddd    0 10px,#eee    0 20px) 0/100%;
+  animation: l3 2s infinite;
+}
+@keyframes l3 {
+    100% {background-size:100%}
+}
+
+.uploading-loader {
+  width: 65px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.uploading-loader:before,
+.uploading-loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset #fff;
+  animation: l5 2.5s infinite;
+}
+.uploading-loader:after {
+  animation-delay: -1.25s;
+  border-radius: 0;
+}
+@keyframes l5 {
+  0% {
+    inset: 0 35px 35px 0;
+  }
+  12.5% {
+    inset: 0 35px 0 0;
+  }
+  25% {
+    inset: 35px 35px 0 0;
+  }
+  37.5% {
+    inset: 35px 0 0 0;
+  }
+  50% {
+    inset: 35px 0 0 35px;
+  }
+  62.5% {
+    inset: 0 0 0 35px;
+  }
+  75% {
+    inset: 0 0 35px 35px;
+  }
+  87.5% {
+    inset: 0 0 35px 0;
+  }
+  100% {
+    inset: 0 35px 35px 0;
+  }
+}
